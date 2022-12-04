@@ -49,17 +49,6 @@
                 <label for="id_supplier" class="form-label">ID Supplier</label>
                 <input type="text" class="form-control" id="id_supplier" name="id_supplier">
             </div>
-            <div class="dropdown">
-                <label for="button" class="form-label dropdown-toggle" data-toggle="dropdown">ID Supplier</label>
-                <div class="dropdown-menu">
-                <div class="dropdown-header">Contoh header Dropdown</div>
-                <a class="dropdown-item" href="#">Link 1</a>
-                <a class="dropdown-item" href="#">Link 2</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item active" href="#">Link 3</a>
-                <a class="dropdown-item disabled" href="#">Link 4</a>
-                </div>
-            </div>
 			<div class="text-center">
 				<input type="submit" class="btn btn-primary" value="Tambah" />
 			</div>

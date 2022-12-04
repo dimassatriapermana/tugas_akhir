@@ -24,6 +24,7 @@ return new class extends Migration
             $table->integer('stok');
             $table->foreignIdFor(Gudang::class,'id_gudang');
             $table->foreignIdFor(Supplier::class,'id_supplier');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

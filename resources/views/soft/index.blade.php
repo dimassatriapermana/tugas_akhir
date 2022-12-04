@@ -1,15 +1,7 @@
 @extends('sidebar')
 
 @section('container')
-
-<h4 class="mt-5">Data Barang</h4>
-<a href="{{ route('barang.create') }}" type="button" class="btn btn-success rounded-3">Tambah Data</a>
-
-@if($message = Session::get('success'))
-    <div class="alert alert-success mt-3" role="alert">
-        {{ $message }}
-    </div>
-@endif
+<h4 class="mt-5">Data Barang Terhapus</h4>
 
 <table id="table_id" class="table table-hover mt-2">
     <thead>
@@ -19,9 +11,11 @@
         <th>Merk</th>
         <th>Jenis</th>
         <th>Tipe</th>
-        <th>Stok</th>  
-        <th>ID Supplier</th>
-        <th>ID Gudang</th>
+        <th>Stok</th>
+        <th>Nama Supplier</th>
+        <th>Alamat Supplier</th>
+        <th>Alamat Gudang</th>
+        <th>Tanggal Terhapus</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -34,12 +28,13 @@
                 <td>{{ $data->jenis }}</td>
                 <td>{{ $data->tipe }}</td>
                 <td>{{ $data->stok }}</td>
-                <td>{{ $data->id_supplier }}</td>
-                <td>{{ $data->id_gudang }}</td>
+                <td>{{ $data->nama_supplier }}</td>
+                <td>{{ $data->alamat_supplier }}</td>
+                <td>{{ $data->alamat_gudang }}</td>
+                <td>{{ $data->deleted_at }}</td>
                 <td>
-                <a href="{{ route('barang.show', $data->id_barang) }}" type="button" class="btn btn-info rounded-3">Lihat</a>
-                <a href="{{ route('barang.edit', $data->id_barang) }}" type="button" class="btn btn-warning rounded-3">Ubah</a>
-                <form action="{{route ('barang.softDelete', $data->id_barang)}}" method="post" class="d-inline">
+                <a href="{{ route('barang.restore', $data->id_barang) }}" type="button" class="btn btn-warning rounded-3">Restore</a>
+                <form action="{{ route('barang.hardDelete', $data->id_barang) }}" method="post" class="d-inline">
                     @method('delete')
                     @csrf
                     <button class="btn btn-danger border-0" onclick="return confirm('Upps, Yakin mau hapus data?')">Hapus</button>

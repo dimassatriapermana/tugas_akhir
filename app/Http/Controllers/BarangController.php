@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class BarangController extends Controller
 {
     public function index() {
-        $datas = DB::select('select * from barang');
+        $datas = DB::select('select * from barang where deleted_at is NULL');
 
         return view('barang.index')
             ->with('datas', $datas);
@@ -81,14 +81,76 @@ class BarangController extends Controller
         return redirect()->route('barang.index')->with('success', 'Data barang berhasil diubah');
     }
 
-    public function delete($id) {
+    // public function show()
+    // {
+    //    $data = DB::select('select * from barang b inner join gudang g on b.id_gudang = g.id_gudang inner join supplier s on b.id_supplier = s.id_supplier');
+    //    return view('barang.show',[
+    //     'data' => $data
+    //    ]);
+    // }
+
+    public function show($id)
+    {
+        $data = DB::select('select * from barang rm inner join gudang g on rm.id_gudang = g.id_gudang inner join supplier s on rm.id_supplier = s.id_supplier WHERE id_barang = :id',[$id])[0];
+        // dd($data->pasien_nama);
+        return view('barang.show', [
+            'data' => $data,
+        ]);
+    }
+
+    // public function show($rm)
+    // {
+    //     $data = DB::select('select * from data_rekam_medis rm inner join dokters d on rm.dokter_id = d.dokter_id inner join pasiens p on rm.pasien_id = p.pasien_id where rm.id = ?',[$rm])[0];
+    //     // dd($data->pasien_nama);
+    //     return view('informasi-medis.rekam-medis.show', [
+    //         'dataRekamMedis' => $data,
+    //     ]);
+    // }
+    
+    public function softDelete($id)
+    {
+        DB::update('UPDATE barang SET deleted_at = ? where id_barang = ?',[
+            now(),
+            $id
+        ]);
+
+        return redirect('/soft');
+    }
+
+    public function restore($id)
+    {
+        DB::update('UPDATE barang SET deleted_at = ? where id_barang = ?',[
+            null,
+            $id
+        ]);
+
+        return redirect('/soft');
+    }
+
+
+    public function hardDelete($id) {
         // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
         DB::delete('DELETE FROM barang WHERE id_barang = :id_barang', ['id_barang' => $id]);
 
-        // Menggunakan laravel eloquent 
-        // Admin::where('id_admin', $id)->delete();
-
-        return redirect()->route('barang.index')->with('success', 'Data barang berhasil dihapus');
+        return redirect()->route('softDelete')->with('success', 'Data barang berhasil dihapus');
     }
 
+    public function softIndex(){
+
+        $datas = DB::select('select * from barang b inner join gudang g on b.id_gudang = g.id_gudang inner join supplier s on b.id_supplier = s.id_supplier where b.deleted_at is NOT NULL');
+
+        return view('soft.index', [
+            'datas' => $datas
+        ]);
+    }
+
+    public function trashed()
+    {
+        $datas = DB::select('select * from barang b inner join gudang g on b.id_gudang = g.id_gudang inner join supplier s on b.id_supplier = s.id_supplier where b.deleted_at is NOT NULL');
+
+        return view('soft.index', [
+            'datas' => $datas
+        ]);
+    }
+    
 }

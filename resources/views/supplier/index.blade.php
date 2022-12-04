@@ -16,6 +16,7 @@
       <tr>
         <th>No.</th>
         <th>ID Supplier</th>
+        <th>Nama Supplier</th>
         <th>Alamat Supplier</th>
         <th>Action</th>
       </tr>

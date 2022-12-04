@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Tugas Akhir</title>
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -89,7 +89,7 @@
         <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
         <div class="bg-light border-right" id="sidebar-wrapper">
-        <div class="sidebar-heading">Toko China </div>
+        <div class="sidebar-heading">Global Elektronik Tembalang</div>
         <div class="list-group list-group-flush">
             <a href="{{route('barang.index')}}" class="list-group-item list-group-item-action bg-light">Barang</a>
             <a href="{{route('gudang.index')}}" class="list-group-item list-group-item-action bg-light">Gudang</a>
@@ -107,10 +107,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="{{route('softDelete')}}">Recycle Bin<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -118,6 +115,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/logout">Logout</a>
+                    <a class="dropdown-item" href="#">Profil</a>
                 </div>
                 </li>
             </ul>

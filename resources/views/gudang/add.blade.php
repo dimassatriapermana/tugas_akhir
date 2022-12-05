@@ -17,7 +17,7 @@
 <div class="card mt-4">
 	<div class="card-body">
 
-        <h5 class="card-title fw-bolder mb-3">Tambah gudang</h5>
+        <h5 class="card-title fw-bolder mb-3">Tambah supplier</h5>
 
 		<form method="post" action="{{ route('gudang.store') }}">
 			@csrf
@@ -26,12 +26,12 @@
                 <input type="text" class="form-control" id="id_gudang" name="id_gudang">
             </div>
 			<div class="mb-3">
-                <label for="alamat_gudang" class="form-label">Alamat Gudang</label>
-                <input type="text" class="form-control" id="alamat_gudang" name="alamat_gudang">
+                <label for="alamat_supplier" class="form-label">Alamat Gudang</label>
+                <input type="text" class="form-control" id="alamat_supplier" name="alamat_supplier">
             </div>
             </div>
 			<div class="text-center">
-				<input type="submit" class="btn btn-primary" value="Tambah" />
+				<input type="submit" class="btn btn-secondary" value="Tambah" />
 			</div>
 		</form>
 	</div>

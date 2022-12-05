@@ -50,7 +50,7 @@
                 <input type="text" class="form-control" id="id_supplier" name="id_supplier">
             </div>
 			<div class="text-center">
-				<input type="submit" class="btn btn-primary" value="Tambah" />
+				<input type="submit" class="btn btn-secondary" value="Tambah" />
 			</div>
 		</form>
 	</div>

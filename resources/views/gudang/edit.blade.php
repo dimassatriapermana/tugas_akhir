@@ -31,7 +31,7 @@
             </div>
             </div>
 			<div class="text-center">
-				<input type="submit" class="btn btn-primary" value="Ubah" />
+				<input type="submit" class="btn btn-warning" value="Ubah" />
 			</div>
 		</form>
 	</div>

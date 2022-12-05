@@ -91,14 +91,14 @@ class BarangController extends Controller
 
     public function show($id)
     {
-        $data = DB::select('select * from barang rm inner join gudang g on rm.id_gudang = g.id_gudang inner join supplier s on rm.id_supplier = s.id_supplier WHERE id_barang = :id',[$id])[0];
+        $data = DB::select('select * from barang b inner join gudang g on b.id_gudang = g.id_gudang inner join supplier s on b.id_supplier = s.id_supplier WHERE id_barang = :id',[$id])[0];
         // dd($data->pasien_nama);
         return view('barang.show', [
             'data' => $data,
         ]);
     }
 
-    // public function show($rm)
+    // public function show($b)
     // {
     //     $data = DB::select('select * from data_rekam_medis rm inner join dokters d on rm.dokter_id = d.dokter_id inner join pasiens p on rm.pasien_id = p.pasien_id where rm.id = ?',[$rm])[0];
     //     // dd($data->pasien_nama);

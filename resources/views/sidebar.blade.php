@@ -68,7 +68,7 @@
             width: 100%;
         }
         #wrapper.toggled #sidebar-wrapper {
-            margin-left: -15rem;
+            margin-left: -18rem;
         }
         }
         </style>  
@@ -88,40 +88,42 @@
     <body>        
         <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
-        <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="bg-secondary border-right text-white" id="sidebar-wrapper">
         <div class="sidebar-heading">Global Elektronik Tembalang</div>
         <div class="list-group list-group-flush">
-            <a href="{{route('barang.index')}}" class="list-group-item list-group-item-action bg-light">Barang</a>
-            <a href="{{route('gudang.index')}}" class="list-group-item list-group-item-action bg-light">Gudang</a>
-            <a href="{{route('supplier.index')}}" class="list-group-item list-group-item-action bg-light">Supplier</a>
+            <a href="{{route('barang.index')}}" class="list-group-item list-group-item-action border-top border-white bg-secondary text-white">Barang</a>
+            <a href="{{route('gudang.index')}}" class="list-group-item list-group-item-action border-white bg-secondary text-white">Gudang</a>
+            <a href="{{route('supplier.index')}}" class="list-group-item list-group-item-action border-bottom border-white bg-secondary text-white">Supplier</a>
+
         </div>
+
         </div>
         <!-- /#sidebar-wrapper -->
         <!-- Page Content -->
         <div id="page-content-wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-            <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
+        <button class="ms-3 btn btn-info rounded-2" id="menu-toggle"><i class="bi bi-justify"></i></button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                <a class="nav-link" href="{{route('softDelete')}}">Recycle Bin<span class="sr-only">(current)</span></a>
+                <a class="nav-link text-dark" href="{{route('softDelete')}}">Sampah<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Akun
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/logout">Logout</a>
-                    <a class="dropdown-item" href="#">Profil</a>
+                    <!-- <a class="dropdown-item" href="#">Profil</a> -->
                 </div>
                 </li>
             </ul>
             </div>
         </nav>
-        <div class="container-fluid" style='margin-top: 10px'>
+        <div class="container-fluid">
             @yield('container')
         </div>
         </div>

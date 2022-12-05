@@ -61,7 +61,7 @@
                 <input type="text" class="form-control" id="alamat_gudang" name="alamat_gudang" value="{{ $data->alamat_gudang }}" readonly>
             </div>
             <div class="text-center">
-            <a href="{{ route('barang.index') }}" type="button" class="btn btn-primary rounded-3" >Kembali</a>
+            <a href="{{ route('barang.index') }}" type="button" class="btn btn-info rounded-3 text-white" >Kembali</a>
 			</div>
             <!-- <a href="{{ route('barang.index') }}" type="button" class="btn btn-primary rounded-3 text-center" >Kembali</a> -->
 		</form>
